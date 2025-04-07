@@ -2001,9 +2001,9 @@ public class Blocks{
         massDriver = new MassDriver("mass-driver"){{
             requirements(Category.distribution, with(Items.titanium, 125, Items.silicon, 75, Items.lead, 125, Items.thorium, 50));
             size = 3;
-            itemCapacity = 120;
+            itemCapacity = 1000;
             reload = 200f;
-            range = 440f;
+            range = 9999f;
             consumePower(1.75f);
         }};
 
