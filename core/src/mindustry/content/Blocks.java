@@ -3050,7 +3050,7 @@ public class Blocks{
         //TODO move tabs?
         unloader = new Unloader("unloader"){{
             requirements(Category.effect, with(Items.titanium, 25, Items.silicon, 30));
-            speed = 60f / 11f;
+            speed = 0;
             group = BlockGroup.transportation;
         }};
 
