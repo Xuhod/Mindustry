@@ -6488,11 +6488,8 @@ public class Blocks{
             requirements(Category.effect, BuildVisibility.notLegacyLaunchPadOnly, with(Items.copper, 350, Items.silicon, 250, Items.lead, 300, Items.titanium, 200));
             size = 4;
             itemCapacity = 100;
-            launchTime = 60f * 30;
-            liquidCapacity = 40f;
+            launchTime = 60f * 10;
             hasPower = true;
-            drawLiquid = Liquids.oil;
-            consumeLiquid(Liquids.oil, 9f/60f);
             consumePower(8f);
         }};
 
