@@ -6497,11 +6497,11 @@ public class Blocks{
             requirements(Category.effect, BuildVisibility.notLegacyLaunchPadOnly, with(Items.copper, 200, Items.graphite, 100, Items.titanium, 100));
             size = 4;
 
-            itemCapacity = 100;
+            itemCapacity = 200;
 
             coolingEffect = new RadialEffect(Fx.steamCoolSmoke, 4, 90f, 9.5f, 180f);
             liquidCapacity = 3000f;
-            consumeLiquidAmount = 1500f;
+            consumeLiquidAmount = 1f;
         }};
 
         interplanetaryAccelerator = new Accelerator("interplanetary-accelerator"){{
