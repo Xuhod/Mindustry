@@ -32,7 +32,7 @@ public class MassDriver extends Block{
     public float reload = 100f;
     public MassDriverBolt bullet = new MassDriverBolt();
     public float bulletSpeed = 5.5f;
-    public float bulletLifetime = 200f;
+    public float bulletLifetime = 999f;
     public Effect shootEffect = Fx.shootBig2;
     public Effect smokeEffect = Fx.shootBigSmoke2;
     public Effect receiveEffect = Fx.mineBig;

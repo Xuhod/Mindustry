@@ -2001,9 +2001,9 @@ public class Blocks{
         massDriver = new MassDriver("mass-driver"){{
             requirements(Category.distribution, with(Items.titanium, 125, Items.silicon, 75, Items.lead, 125, Items.thorium, 50));
             size = 3;
-            itemCapacity = 120;
+            itemCapacity = 1000;
             reload = 200f;
-            range = 440f;
+            range = 9999f;
             consumePower(1.75f);
         }};
 
@@ -3050,7 +3050,7 @@ public class Blocks{
         //TODO move tabs?
         unloader = new Unloader("unloader"){{
             requirements(Category.effect, with(Items.titanium, 25, Items.silicon, 30));
-            speed = 60f / 11f;
+            speed = 0;
             group = BlockGroup.transportation;
         }};
 
@@ -6488,11 +6488,8 @@ public class Blocks{
             requirements(Category.effect, BuildVisibility.notLegacyLaunchPadOnly, with(Items.copper, 350, Items.silicon, 250, Items.lead, 300, Items.titanium, 200));
             size = 4;
             itemCapacity = 100;
-            launchTime = 60f * 30;
-            liquidCapacity = 40f;
+            launchTime = 60f * 10;
             hasPower = true;
-            drawLiquid = Liquids.oil;
-            consumeLiquid(Liquids.oil, 9f/60f);
             consumePower(8f);
         }};
 
@@ -6500,11 +6497,11 @@ public class Blocks{
             requirements(Category.effect, BuildVisibility.notLegacyLaunchPadOnly, with(Items.copper, 200, Items.graphite, 100, Items.titanium, 100));
             size = 4;
 
-            itemCapacity = 100;
+            itemCapacity = 200;
 
             coolingEffect = new RadialEffect(Fx.steamCoolSmoke, 4, 90f, 9.5f, 180f);
             liquidCapacity = 3000f;
-            consumeLiquidAmount = 1500f;
+            consumeLiquidAmount = 1f;
         }};
 
         interplanetaryAccelerator = new Accelerator("interplanetary-accelerator"){{
