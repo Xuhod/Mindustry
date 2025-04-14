@@ -20,6 +20,18 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Get Latest Tag
+        id: get_latest_tag
+        run: echo "::set-output name=tag::$(git describe --tags --match "build *" --abbrev=0 || echo "build 0")"
+
+      - name: Calculate Next Tag
+        id: calc_next_tag
+        run: |
+          latest_tag="${{ steps.get_latest_tag.outputs.tag }}"
+          next_number=$(( ${latest_tag##* } + 1 ))
+          next_tag="build ${next_number}"
+          echo "next_tag=${next_tag}" >> $GITHUB_ENV
+
       - name: Build with Gradle
         run: ./gradlew desktop:dist
 
@@ -27,8 +39,8 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: ${{ github.ref_name }}
+          tag_name: ${{ env.next_tag }}
+          release_name: ${{ env.next_tag }}
           draft: false
           prerelease: false
         env:
