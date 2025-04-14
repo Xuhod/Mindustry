@@ -22,14 +22,14 @@ jobs:
 
       - name: Get Latest Tag
         id: get_latest_tag
-        run: echo "::set-output name=tag::$(git describe --tags --match "build *" --abbrev=0 || echo "build 0")"
+        run: echo "::set-output name=tag::$(git describe --tags --match "build-*" --abbrev=0 || echo "build-0")"
 
       - name: Calculate Next Tag
         id: calc_next_tag
         run: |
           latest_tag="${{ steps.get_latest_tag.outputs.tag }}"
-          next_number=$(( ${latest_tag##* } + 1 ))
-          next_tag="build ${next_number}"
+          next_number=$(( ${latest_tag#build-} + 1 ))
+          next_tag="build-${next_number}"
           echo "next_tag=${next_tag}" >> $GITHUB_ENV
 
       - name: Build with Gradle
