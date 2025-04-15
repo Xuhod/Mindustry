@@ -20,6 +20,14 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Generate Tag with Commit Hash
+        id: generate_tag
+        run: |
+          # Use the first 7 characters of the commit hash
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          echo "next_tag=build-${SHORT_SHA}" >> $GITHUB_ENV
+          echo "Generated tag: build-${SHORT_SHA}"
+
       - name: Build with Gradle
         run: ./gradlew desktop:dist
 
@@ -27,8 +35,8 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: ${{ github.ref_name }}
+          tag_name: ${{ env.next_tag }}
+          release_name: ${{ env.next_tag }}
           draft: false
           prerelease: false
         env:
